@@ -1,0 +1,14 @@
+class Solution:
+    def maxArea(self, height: List[int]) -> int:
+        ma=-1*10**20
+        n=len(height)
+        i,j=0,n-1
+        while i<j:
+            if height[i]<=height[j]:
+                ca=height[i]*abs(j-i)
+                i+=1
+            else:
+                ca=height[j]*abs(j-i)
+                j-=1
+            ma=max(ma,ca)
+        return ma
